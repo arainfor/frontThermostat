@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <h1>Thermostat</h1>
+
+  <div ng-controller='SystemStatusCtrl'>
+    <input id="systemStatus" type="checkbox" ng-model="status().checked" ng-click="toggle()"> System On <br/>
+  </div>
+
+  <div ng-controller='TargetCtrl'>
+    <b>Target Temperature </b>
+
+    <input type="number" id="targetTemp" ng-model="fahrenheit" ng-change="set()"/>°F
+  </div>
+
+  <div ng-controller='TemperatureCtrl'>
+    <li ng-repeat="x in temperature()">
+      <b>Location: </b> {{ x.name }} <b>Temperature: </b>{{ x.fahrenheit }}
+    </li>
+  </div>
+
+  <div ng-controller='RelayCtrl'>
+    <input id="relay" type="radio" disabled ng-model="relay().checked" ng-click="toggle()"> Running <br/>
+  </div>
+
+  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
